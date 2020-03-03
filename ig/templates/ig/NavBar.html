@@ -1,0 +1,50 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/9c3fd62c76.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'css/NavBar.css' %}">
+    <title></title>
+</head>
+<body>
+    <header>
+        <div class="navigation">
+            <div class="logo">
+                <a href="/">
+                    <i class="fab fa-instagram"></i>
+                    Instagram Clone
+                </a>
+            </div>
+
+            <div class="searchbar">
+                <input type="text" placeholder="search">
+            </div>
+
+            <div class="icons">
+                <a href="/" class="home">
+                    <i class="fas fa-home"></i>
+                </a>
+                <a href="/" class="explore">
+                    <i class="far fa-compass"></i>
+                </a>
+                <a href="/" class="activity">
+                    <i class="far fa-heart"></i>
+                </a>
+                <a class="profile" href="/">
+                    <i class="fas fa-user"></i>
+                </a>
+            </div>
+            
+        </div>
+    </header>
+
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+
+</body>
+</html>

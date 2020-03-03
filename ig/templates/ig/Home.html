@@ -1,0 +1,62 @@
+{% extends 'ig/NavBar.html' %}
+{% load static %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/Home.css' %}">
+    {% for post in posts %}
+        <div class="card">
+            <div class="cardHeader">
+                <div class="profileImage">
+                
+                </div>
+                <div class="cardTop">
+                    <div class="usernameTop"> {{ post.username }} </div>
+                    <div class="location">Test Location</div>
+                </div>
+
+                <div class="options">
+                    <i class="fas fa-ellipsis-h"></i>
+                </div>
+            </div>
+            
+            <div class="cardImage">
+                {% if post.image %}
+                        <img src="{{ post.image.url }}" alt="">
+                {% endif %}
+            </div>
+
+            <div class="cardBottom">
+                <a href="">
+                    <i class="far fa-heart"></i>
+                </a>
+                <a href="">
+                    <i class="far fa-comment"></i>
+                </a>
+                <a href="">
+                    <i class="fas fa-share"></i>
+                </a>
+                <a href="">
+                    <i class="far fa-bookmark"></i>
+                </a>
+            </div>
+
+            <div class="cardLikes">
+                <a href="">123 likes</a>
+            </div>
+
+            <div class="cardDesc">
+                <a href="">
+                    <h2> {{ post.username }} </h2>
+                </a>
+                <span>
+                    <p> {{ post.desc }} </p>
+                </span>
+            </div>
+
+            <div class="posted">
+                {{ post.date | timesince }} ago
+            </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
