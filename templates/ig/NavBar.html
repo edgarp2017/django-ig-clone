@@ -5,11 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/9c3fd62c76.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="{% static 'css/NavBar.css' %}">
-    <title></title>
+    <title>Instagram Clone</title>
 </head>
 <body>
     {% if user.is_authenticated %}
+    <link rel="stylesheet" href="{% static 'css/NavBar.css' %}">
+
     <header>
         <div class="navigation">
             <div class="logo">
@@ -33,7 +34,7 @@
                 <a href="/" class="activity">
                     <i class="far fa-heart"></i>
                 </a>
-                <a class="profile" href="/">
+                <a class="profile" href="/accounts/logout">
                     <i class="fas fa-user"></i>
                 </a>
             </div>

@@ -1,4 +1,6 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.forms import UserCreationForm
 from django.utils import timezone
 from .models import Post
 from .forms import PostForm
@@ -33,3 +35,14 @@ class PostDetailView(DetailView):
     def get_obect(self):
         id_ = self.kwargs.get(id)
         return get_object_or_404(Post, id=id_)
+
+def signup_view(request):
+    form = UserCreationForm(request.POST)
+    if form.is_valid():
+        form.save()
+        username = form.cleaned_data.get('username')
+        password = form.cleaned_data.get('password1')
+        user = authenticate(username=username, password=password)
+        login(request, user)
+        return redirect('/')
+    return render(request, 'ig/Signup.html', {'form': form})
